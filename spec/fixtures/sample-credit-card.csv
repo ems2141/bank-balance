@@ -1,3 +1,8 @@
 Date,Description,Amount
+<<<<<<< HEAD
 2014-06-01,Incredible Wooden Hat,$5.01
 2014-06-02,Fantastic Concrete Chair,$10.0
+=======
+2014-06-01,Incredible Wooden Hat,$5
+2014-06-02,Fantastic Concrete Chair,$10
+>>>>>>> 072a48cf5ec313d305b9ff435f1198b19419afb3
