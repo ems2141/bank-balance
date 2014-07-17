@@ -12,7 +12,7 @@ class BankBalance
   private
 
   def number_to_string(number)
-    "$" + number.to_s
+    "$" + number.to_s + "0"
   end
 
   def find_monthly_credits(cc_data)
@@ -25,7 +25,7 @@ class BankBalance
       end
     end
 
-    array_of_nums = monthly_credits.map{|x| x.gsub("$","").to_f}
+    array_of_nums = monthly_credits.map{|x| convert_string_num_to_float(x)}
     sum = array_of_nums.inject{|sum,x| sum + x }
     "$" + sum.to_s
   end
