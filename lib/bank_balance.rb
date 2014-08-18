@@ -2,17 +2,14 @@ class BankBalance
 
   def balance(checking_data, credit_card_data)
     checking = total_checking(checking_data)
-
     month_credit = find_monthly_credits(credit_card_data)
-    credit_card = month_credit.gsub("$", "").gsub(",", "").to_f
-    number_to_string(checking - credit_card)
+    number_to_string(checking - month_credit)
   end
-
 
   private
 
   def number_to_string(number)
-    "$" + number.to_s + "0"
+    sprintf "$%.2f", number
   end
 
   def find_monthly_credits(cc_data)
@@ -26,8 +23,7 @@ class BankBalance
     end
 
     array_of_nums = monthly_credits.map{|x| convert_string_num_to_float(x)}
-    sum = array_of_nums.inject{|sum,x| sum + x }
-    "$" + sum.to_s
+    array_of_nums.inject{|sum,x| sum + x }
   end
 
   def total_checking(checking)

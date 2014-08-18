@@ -12,7 +12,6 @@ class FileParser
     unless @checking_path.match(month) == nil || @credit_path.match(month) == nil
       parsed_credit_data = CSV.read(@credit_path)
       parsed_checking_statement = CSV.read(@checking_path)
-
       BankBalance.new.balance(parsed_checking_statement, parsed_credit_data)
     end
   end
